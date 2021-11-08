@@ -32,7 +32,9 @@ This project uses Yelp dataset and aims to provide the most precise recommendati
 
 ## 1.2 EDA and Visualization
 
-Using Matplotlib to 
+Rating stars comparison between reviews, recomputed average ratings on business and original business ratings.
+
+Average Rating Stars and Review Counts per Business(Restaurant)/User
 
 # 2. Recommendation System Evaluation
 > File Name: Recommendation Systems Evaluation.ipynb
