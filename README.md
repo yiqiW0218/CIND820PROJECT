@@ -1,5 +1,16 @@
 # CIND820 Project: Recommendation System Analysis for Yelp
 Yiqi WANG
+
+This project uses Yelp dataset and aims to provide the most precise recommendation of Vancouver’s restaurant to the consumers. It will conduct research from the following four aspects:
+
+> 1.The performance of collaborative filtering on the selected database;
+> 
+> 2.The performance of content-based filtering on the selected database;
+> 
+> 3.The performance of weighted hybrid filtering (collaborative filtering and content-based filtering) on the selected database;
+> 
+> 4.Performance comparison and obtain the highest prediction accuracy model.
+
 # 1. Data Preprocessing and Exploration
 > File Name: Data Preprocessing and Exploration.ipynb
 
@@ -21,6 +32,11 @@ Yiqi WANG
 
 ## 1.2 EDA and Visualization
 
+Using Matplotlib to 
 
 # 2. Recommendation System Evaluation
 > File Name: Recommendation Systems Evaluation.ipynb
+
+## 2.1 Collaborative Filtering Model
+
+I use Python library Surprise (SVD, SVDpp, KNNBasic) to find the best collaborative filtering model based on RMSE, MAE, and Fit time.
