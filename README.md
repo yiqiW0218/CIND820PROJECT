@@ -32,7 +32,13 @@ This project uses Yelp dataset and aims to provide the most precise recommendati
 
 ## 1.2 EDA and Visualization
 
-Rating stars comparison between reviews, recomputed average ratings on business and original business ratings.
+Spearman’s Correlation between Review Ratings and Three Variables
+
+Spearman’s Correlation between Business Stars and Business Review Counts
+
+Numbers of Reviews in each Rating Group
+
+Numbers of Restaurants in each Rating Group
 
 Average Rating Stars and Review Counts per Business(Restaurant)/User
 
@@ -42,3 +48,37 @@ Average Rating Stars and Review Counts per Business(Restaurant)/User
 ## 2.1 Collaborative Filtering Model
 
 I use Python library Surprise (SVD, SVDpp, KNNBasic) to find the best collaborative filtering model based on RMSE, MAE, and Fit time.
+
+## 2.2 Content-based Filtering Model
+
+### 2.2.1 Data Implement
+
+1. The data type of attributes column is the dictionary, and its values have three types which are True/False/None, text, and sub-dictionary(with values of True/False/None). Classify the key value by its value type.
+
+2. Check and normalize the text string value and get attribute_text_lst.
+
+3. Re-built attributes features, for example, keep the key value if the value is True. When the value is text, combine key value and formatted text. Then get new_attributes
+
+4. Combine new_attributes and categories into combined_features
+
+Use CountVectorizer's fit.tranform from sklearn.feature_extraction module to extract features and count the number of texts and store transformed matrix count_matrix into an array. Then calculate the cos θ for the two vectors in the count_matrix by cosine_similarity from sklearn.metrics.pairwise module to get a cosine_sim matrix, which is a numpy array consists of cosine similarity between each restaurants.
+
+### 2.2.2 Model Evaluation
+
+Use KFold from sklearn.model_selection module to split the dataset into 10 consecutive folds for train/test sets, and then calculate MAE and RMSE on each test set to get the average value and standard deviation.
+
+Use time module to calculate trainning and test time.
+
+## 2.3 Weighted Hybrid Filtering Model
+
+### 2.3.1 Data Implement
+
+1. Use SVD model to train the whole dataset and calculate the average predicted rating on each restaurant, which is set as the prediction score of collaborative filtering.
+
+2. Use the prediction scores of content-based filtering which is calculated in section 2.2.
+
+### 2.3.2 Model Evaluation
+
+Use KFold from sklearn.model_selection module to split the dataset into 10 consecutive folds for train/test sets, and then calculate MAE and RMSE on each test set to get the average value and standard deviation.
+
+Use time module to calculate trainning and test time.
